@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  cursor-ide:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: cursor_compose_container
+    ports:
+      - "80:6080"
+    volumes:
+      - cursor_data:/home/cursoruser
+    restart: unless-stopped
+
+volumes:
+  cursor_data:
